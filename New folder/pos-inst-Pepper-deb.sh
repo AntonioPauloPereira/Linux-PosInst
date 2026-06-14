@@ -37,6 +37,7 @@ sudo apt innstall kolourpaint -y
 sudo apt install qbittorrent -y
 sudo apt install mousepad -y
 sudo apt install conky-all -y
+sudo apt install thunderbird -y
 
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
