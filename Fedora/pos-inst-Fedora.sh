@@ -32,11 +32,12 @@ sudo dnf install xfce4-notes.x86_64 -y
 sudo dnf install firefox.x86_64 -y
 sudo dnf install audacity.x86_64 -y
 sudo dnf install imagemagick.x86_64 -y
-sudo dnf innstall kolourpaint.x86_64 -y
+sudo dnf install kolourpaint.x86_64 -y
 sudo dnf install qbittorrent.x86_64 -y
 sudo dnf install mousepad.x86_64 -y
 sudo dnf install thunderbird.x86_64 -y
 sudo dnf install -y chromium.x86_64
+sudo dnf install -y handbreak.x86_64
 
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
@@ -54,6 +55,8 @@ flatpak install -y com.rafaelmardojai.Blanket
 flatpak install -y net.waterfox.waterfox
 flatpak install -y com.github.tchx84.Flatseal 
 flatpak install -y net.sourceforge.osmo  
+flatpak install -y com.dec05eba.gpu_screen_recorder      
+
 
 echo -e "\n"
 cat << "EOF"
