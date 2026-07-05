@@ -1,0 +1,17 @@
+#XfceNotifyWindow {
+	background-color: #1F1F1F;
+	border: none;
+}
+#XfceNotifyWindow progressbar.horizontal {
+	min-height: 4px;
+}
+#XfceNotifyWindow progressbar.horizontal trough {
+	background-color: #6A6A6A;
+	min-height: 11px;
+	border: none;
+}
+#XfceNotifyWindow progressbar.horizontal trough progress {
+	background-color: @accent;
+	min-height: 11px;
+	border-right: 11px solid #FFFFFF;
+}

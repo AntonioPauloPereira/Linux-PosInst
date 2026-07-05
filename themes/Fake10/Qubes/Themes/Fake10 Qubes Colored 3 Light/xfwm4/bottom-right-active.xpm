@@ -1,0 +1,22 @@
+/* XPM */
+static char * bottom_right_active_xpm[] = {
+"16 16 2 1",
+"   c None",
+"A  c #C0C0C0",
+"               A",
+"               A",
+"               A",
+"               A",
+"               A",
+"               A",
+"               A",
+"               A",
+"               A",
+"               A",
+"               A",
+"               A",
+"               A",
+"               A",
+"               A",
+"AAAAAAAAAAAAAAAA"
+};

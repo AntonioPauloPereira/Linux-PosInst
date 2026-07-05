@@ -1,0 +1,314 @@
+
+ mmmmmm        #             mmm     mmmm 
+ #       mmm   #   m   mmm     #    m"  "m
+ #mmmmm "   #  # m"   #"  #    #    #    #
+ #      m"""#  #"#    #""""    #    #    #
+ #      "mm"#  #  "m  "#mm"  mm#mm   #mm# 
+
+"A faithful Windows 10 theme"
+
+by Honu
+version 6 (4/4/2026)
+
+What's so different about Fake10 compared to similar themes?:
+- Made from scratch (for better & for worse), easily modifiable
+- Abides by the Windows 10 art style as much as possible (no Fluent icons, no pre-10 icons¹)
+- Doesn't show any branding by default (for any Microsoft software)
+- Extremely high attention to detail and accuracy
+- Extremely simple accent color customization
+- NEW: Contains auto-installer shell script
+- NEW: Contains both light and dark modes
+- Contains brand new Win10-style icon recreations
+- Contains resizable Windows 10 cursors (and an extra inverted cursor theme)
+- Contains multiple start button icons to choose from
+- Supports the XFCE shade and stick buttons
+- Supports Qubes OS and Qubes window coloring
+
+¹except for notepad
+
+PLEASE NOTE: If you're aiming for a very accurate Windows 10-like experience, run the installer or
+complete the manual installation guide below! Installing the theme correctly makes it way more
+satisfying, as it was designed to complement certain setting changes. I've seen a couple people only
+move the icons and GTK themes to their respective folders, doing nothing else. I don't want you to
+make the same mistake! Of course, you can do whatever you want with your own system, but be advised.
+
+Aside from that, Fake10 is a fantastic choice for minimal XFCE environments- with it being designed
+specifically for Arch Linux and Qubes OS. Heavier distributions should work fine, but they contain a
+lot of bundled programs which Fake10 might not support well. Be wary. Otherwise, try it out!
+
+╔══════════════╗
+║ CONTACT INFO ║
+╚══════════════╝
+Thank you for 3,500 downloads on OpenDesktop! Fake10 is my first public project in 6 years, and my first
+Linux project ever. I slowly built Fake10 over a year and it's awesome seeing the theme now being shared
+by people all over the world. The Linux community is truly special. Version 6 will be the last update for
+a while, as I want to move my focus to other things, but I'll still read feedback and emails.
+
+You can ask questions, report issues, or critique my amazing CSS by emailing "fake10honu@protonmail.com".
+
+Keep in mind that Fake10 is mainly designed to handle XFCE system UIs. I can't guarantee that X application
+will look good or have support for X icon at the moment, but if something is really bothering you on a popular
+GTK3 Linux application feel free to send an email. I might not bite, but I can't promise that it'll be fixed
+quickly or at all either. I'm only one man, and one novice theme designer.
+
+╔══════════════╗
+║ GUIDED SETUP ║
+╚══════════════╝ (~6 minutes)
+Run "chmod +x install.sh" in the same directory as the installer
+Run "./install.sh"
+Answer prompts and follow instructions
+Run "xfconf-query -c xfce4-panel -p / -R -r" to reset the XFCE panel if it breaks [TROUBLESHOOTING]
+
+╔══════════════╗
+║ MANUAL SETUP ║
+╚══════════════╝ (~30 minutes)
+###### Main #######################################################################################################################################################
+Install xdg-user-dirs, xfce4-docklike-plugin, and wmctrl packages (recommended, makes theme more accurate) [OPTIONAL]
+Move the font folders from ./Fonts/ to ~/.local/share/fonts/
+Move everything inside ./Mimes/ to ~/.local/share/mime/packages/
+Move shell scripts inside ./Scripts/ to ~/.local/bin/
+Move everything inside ./Icons/ to ~/.icons/
+Move the images in ./Wallpaper/ to your wallpaper folder [OPTIONAL]
+Set your desired accent color hex code inside ./Themes/Fake10/gtk-3.0/gtk.css (Refer to colors.png for default Windows accent colors) [OPTIONAL]
+Set your accent color hex code inside ./Themes/Fake10 Light/gtk-3.0/gtk.css [OPTIONAL]
+Set your accent color hex code at the bottom of ./Themes/Fake10 Accent Color/xfwm4/themerc [OPTIONAL]
+Set your accent color hex code at the bottom of ./Themes/Fake10 Light Accent Color/xfwm4/themerc [OPTIONAL]
+Move the folders inside ./Themes/ to ~/.themes/
+Create or add the following text to the last line of ~/.bash_profile, ~/.profile, and ~/.xsessionrc: "export GTK_OVERLAY_SCROLLING=0"
+Run "chmod +x ~/.local/bin/show-desktop.sh && chmod +x ~/.local/bin/reload-theme.sh"
+Run "rm -rf ~/.cache/fontconfig && rm -rf ~/.fontconfig && fc-cache -rv"
+Run "update-mime-database ~/.local/share/mime/"
+Run "gtk-update-icon-cache -f -t ~/.icons/Fake10/ && gtk-update-icon-cache -f -t "$HOME/.icons/Fake10 Light/" "
+Run "xfce4-panel -r"
+Appearance > Style > Fake10 or Fake10 Light
+           > Icons > Fake10 or Fake10 Light
+           > Fonts > Default Font = Segoe UI Regular 9px
+                   > Default Monospace Font  = Consolas Regular 12px
+                   > Hinting = Full
+                   > Sub-pixel order = RGB (unless you aren't on a RGB monitor)
+                   > Custom DPI setting = Disabled
+           > Settings > Show images on buttons = Disabled
+                      > Enable header bars in dialogs = Disabled
+Window Manager > Style > Theme = Fake10, Fake10 Light, or the Accent Color counterparts (you change this later for Qubes OS)
+                       > Title Font = Segoe UI Regular 9px
+                       > Title Alignment = Left
+                       > Shade Button = Hidden [OPTIONAL]
+Mouse and Touchpad > Theme > Fake10, Fake10 Light, or the Fake10 Evil counterparts
+###### Taskbar and Start Menu #####################################################################################################################################
+Panel Preferences > Delete Panel 2
+                  > Panel 1 > Display > Unlock the panel, drag it to the bottom, re-lock
+                                      > Row size (pixels) = 40px
+                            > Appearance > Style = Solid color (required to remove 1px border)
+                                         > Color = #101010 (or #EEEEEE for light mode)
+                                         > Fixed icon size (pixels) = 24px
+                            > Items > Delete all items first (required for Show Desktop button to work properly)
+                                    > Set in order: Whisker Menu, Docklike Taskbar, Separator, Status Tray, PulseAudio, Clock, Notification Plugin, Generic Monitor
+                                    > Use Window Buttons instead of Docklike Taskbar if you prefer it, if Docklike is under 0.5.1-1, or if using Qubes [OPTIONAL]
+                                    > Use Show Desktop instead of Generic Monitor if you want a much larger Show Desktop button [OPTIONAL]
+                                    > Separator > Style = Transparent
+                                                > Expand = Enabled
+                                    > Docklike Taskbar > Show preview thumbnail for open windows = Enabled
+                                                       > Middle mouse button = Launch new instance
+                                                       > Active indicator style = None
+                                                       > Inactive indicator style = None
+                                                       > Force icon size = 24px
+                                    > Window Buttons > Show handle = Disabled
+                                                     > Show button labels = Enabled
+                                                     > Sorting order = None, allow drag-and-drop
+                                                     > Group windows by application = Enabled
+                                    > Generic Monitor > Command = echo "<img></img><click>/home/USER/.local/bin/show-desktop.sh</click><tool>Show Desktop</tool>"
+                                                      > Replace USER with your user name
+                                                      > Label = Disabled
+                                                      > Period = 86400
+                                    > Status Tray Plugin > Fixed icon size (pixels) = 16px
+                                                         > Square items = Enabled
+                                    > Clock > Date Font > Segoe UI Regular 9px
+                                            > Time Font > Segoe UI Regular 9px
+                                            > Set layout and format to your country standard
+                                    > Whisker Menu > General > Show category names = Disabled
+                                                             > Show application descriptions = Disabled
+                                                             > Category icon size = Very small
+                                                             > Menu width = 392 [OPTIONAL]
+                                                             > Menu height = 640 [OPTIONAL]
+                                                   > Appearance > Position categories on left = Enabled
+                                                                > Position search entry on bottom = Enabled
+                                                                > Position commands next to search entry = Enabled
+                                                                > Profile = Hidden [OPTIONAL]
+                                                                > Set the icon to your preferred start menu icon
+                                                   > Behavior > Show confirmation dialog = Disabled
+                                                   > Commands > Enable Shut Down, disable the other buttons
+Session and Startup > Application Autostart > Add ~/.local/bin/reload-theme.sh to trigger on login
+Power Manager > System > Critical Battery Power Level = 20 (to match theme icons, if you have a battery)
+                       > System tray icon = Enabled (if you have a battery)
+Notification Settings > General > Fade out = Disabled [OPTIONAL]
+                                > Slide out = Enabled [OPTIONAL]
+                      > Appearance > Theme = Fake10 or Fake10 Light
+                                   > Opacity = 100%
+                                   > Default position = Bottom right [OPTIONAL]
+                      > Log > Log notifications = Enabled, Always
+Keyboard > Application Shortcuts > Add "xfce4-popup-whiskermenu" and bind it to your start keys [OPTIONAL]
+Window Manager Tweaks > Compositor > Show shadows under dock windows = Disabled
+###### Terminal ###################################################################################################################################################
+Move fake-ten.theme from ./Terminal/ to ~/.local/share/xfce4/terminal/colorschemes/
+Terminal > General > Initial title = "Command Prompt"
+                   > Dynamically-set title = Isn't displayed [OPTIONAL]
+                   > Cursor Shape = Underline
+                   > Cursor blinks = Enabled
+         > Appearance > Font = Consolas Regular 11px
+                      > Allow bold text = Disabled
+                      > Display menubar in new windows = Disabled
+         > Colors > Presets = Fake10
+###### Thunar File Explorer #######################################################################################################################################
+Thunar > Preferences > Side Pane > Shortcuts Pane Icon Size = 16px
+       > Toolbar > Disable Home
+       > View > Location Selector = Buttons Style [OPTIONAL]
+Run "xdg-user-dirs-update" to create user directories which use theme icons [OPTIONAL]
+Bookmark the user directories (in order: Desktop, Documents, Downloads, Music, Pictures, Videos) [OPTIONAL]
+###### Firefox ####################################################################################################################################################
+Firefox > Settings > Extensions & Themes > Dark or Light = Enabled (change it off System Theme)
+        > about:config > toolkit.legacyUserProfileCustomizations.stylesheets = true
+                       > widget.gtk.overlay-scrollbars.enabled = false
+                       > widget.non-native-theme.gtk.scrollbar.allow-buttons = true
+                       > widget.non-native-theme.gtk.scrollbar.round-thumb = false
+                       > widget.non-native-theme.scrollbar.style = 4
+                       > widget.non-native-theme.scrollbar.size.override = 17
+                       > layout.css.scrollbar-width-thin.disabled = true
+Find your Firefox profile directory path in about:support and create subdirectory "chrome" inside it
+Move userChrome.css from ./Firefox/<Light or Dark> Theme to the chrome directory you just made
+###### Final Touches ##############################################################################################################################################
+Ristretto > View > Show Toolbar = Disabled
+                 > Show Status Bar = Disabled
+Desktop > Desktop Icons > Icon Size = 48px [OPTIONAL]
+        > File/Launcher Icons > Disable Home, File System, and Devices [OPTIONAL]
+Workspaces > Number of workspaces = 1 [OPTIONAL]
+XFCE Screensaver > Lock Screen > User Switching = Disabled [OPTIONAL]
+Customize desktop icon label colors and shadows based on your wallpaper near the bottom of Fake10/gtk-3.0/gtk.css [OPTIONAL]
+Reboot system to fix fonts, scrollbars, and alignment
+
+╔═══════════════════════╗
+║ QUBES OS MANUAL SETUP ║
+╚═══════════════════════╝ (~70 minutes)
+NOTE: The install.sh script is compatible with Qubes OS and significantly reduces installation time.
+This guide is for people who don't want to review and run the shell script. Analyzing the script for
+Dom0 and your VMs is certainly way faster than doing everything manually, but I want to keep this
+guide for more paranoid users. Also, the install.sh SHA256 hash is on the download page, but you should
+still manually review the script first. Make sure to quickly check the other scripts in ./Scripts/ too.
+###### Dom0 #######################################################################################################################################################
+Populate and run the following command in Dom0 to copy the theme to Dom0 [DISCOURAGED BY QUBES DEVS]
+
+	qvm-run --pass-io <source-vm-name> "cat ~/Downloads/Fake10-v6.tar.gz" > ~/Desktop/Fake10.tar.gz
+
+Extract the theme by running "tar -xvzf ~/Desktop/Fake10.tar.gz"
+Modify the CSS file in your desired theme (./Themes/Fake10/gtk-3.0/gtk.css or ./Themes/Fake10 Light/gtk-3.0/gtk.css) by running "nano gtk.css" in the directory
+
+	.xfce4-panel .tasklist button box image {
+		background-color: transparent;
+		margin-left: 5px; <----- [CHANGE TO 9PX]
+	}
+	.xfce4-panel .tasklist button:checked box image,
+	.xfce4-panel .tasklist button:hover box image {
+		margin-left: 9px; <----- [CHANGE TO 13PX]
+	}
+
+Also modify the following line of CSS
+
+	#whiskermenu-window .category-button {
+		border: none;
+		background-color: transparent;
+		min-width: 30px; <----- [CHANGE TO 36PX]
+		min-height: 36px;
+		-gtk-icon-style: symbolic;
+	}
+
+Modify the following line of CSS
+
+	#genmon-8 .genmon_imagebutton {
+		margin-right: -5px; <----- [CHANGE TO -11PX]
+	}
+
+Install Fake10 like normal
+Copy the window borders from ~/Desktop/Fake10/Qubes/Themes/ to ~/.themes/ and apply one in Window Manager
+Back up and overwrite the Adwaita cursors in /usr/share/icons/Adwaita/cursors/ with your desired cursor theme
+Modify the following line by running "sudo nano /usr/lib/qubes/icon-receiver" to prevent icon tinting [OPTIONAL]
+
+	icon_tinted = icon.tint(color) <----- [CHANGE TO "icon_tinted = icon"]
+
+Change some VM colors to gray if you don't like the colored context menu borders [OPTIONAL]
+Change some VM colors to gray to make their system tray icons monochrome and fit better with the theme [OPTIONAL]
+Reboot system to fix icons, cursors, fonts, scrollbars, and alignment
+###### Other VMs ##################################################################################################################################################
+Get a fresh copy of Fake10 (without the Dom0 CSS modifications)
+Modify the following line of CSS in your desired theme (./Themes/Fake10/gtk-3.0/gtk.css or ./Themes/Fake10 Light/gtk-3.0/gtk.css)
+
+	tooltip {
+		background-color: transparent; <----- [CHANGE TO WHAT THE COMMENT NEXT TO THIS LINE SAYS]
+	}
+
+Install the Fake10 theme in the rest of your VMs (setting accent colors is recommended, skip the taskbar section)
+For sys-net, change the VM color to gray and overwrite icons in ~/.icons/Fake10/16/ with icons from ./Qubes/<Light or Dark> Icons/Network Manager/
+For whonix-gateway, run " qvm-run -u root whonix-gateway-18 'pcmanfm-qt' " to open a file explorer in root
+Copy the sdwdate icons from ./Qubes/Dark Icons/ or ./Qubes/Light Icons/ to the Whonix Gateway VM and overwrite the icons in /usr/share/sdwdate-gui/icons/
+
+╔═══════════════════════╗
+║ WINDOWS ACCENT COLORS ║
+╚═══════════════════════╝
+"Default blue"       #0078D7
+"Yellow gold"        #FFB900
+"Gold"               #FF8C00
+"Orange bright"      #F7630C
+"Orange dark"        #CA5010
+"Rust"               #DA3B01
+"Pale rust"          #EF6950
+"Brick red"          #D13438
+"Mod red"            #FF4343
+"Pale red"           #E74856
+"Red"                #E81123
+"Rose bright"        #EA005E
+"Rose"               #C30052
+"Plum light"         #E3008C
+"Plum"               #BF0077
+"Orchid light"       #C239B3
+"Orchid"             #9A0089
+"Navy blue"          #0063B1
+"Purple shadow"      #8E8CD8
+"Purple shadow dark" #6B69D6
+"Iris pastel"        #8764B8
+"Iris Spring"        #744DA9
+"Violet red light"   #B146C2
+"Violet red"         #881798
+"Cool blue bright"   #0099BC
+"Cool blue"          #2D7D9A
+"Seafoam"            #00B7C3
+"Seafoam teal"       #038387
+"Mint light"         #00B294
+"Mint dark"          #018574
+"Turf green"         #00CC6A
+"Sport green"        #10893E
+"Gray"               #7A7574
+"Gray brown"         #5D5A58
+"Steel blue"         #68768A
+"Metal blue"         #515C6B
+"Pale moss"          #567C73
+"Moss"               #486860
+"Meadow green"       #498205
+"Green"              #107C10
+"Overcast"           #767676
+"Storm"              #4C4A48
+"Blue gray"          #69797E
+"Gray dark"          #4A5459
+"Liddy green"        #647C64
+"Sage"               #525E54
+"Camouflage desert"  #847545
+"Camouflage"         #7E735F
+
+╔════════════════════╗
+║ QUBES OS VM COLORS ║
+╚════════════════════╝
+"Red"                #CC0000
+"Orange"             #F57900
+"Yellow"             #EDD400
+"Green"              #73D216
+"Blue"               #3465A4
+"Purple"             #75507B
+"Gray"               #555555
+"Black"              #000000

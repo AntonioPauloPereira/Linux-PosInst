@@ -1,0 +1,1573 @@
+@define-color accent #0078D7;
+/* ------------ COLORING ------------ */
+@define-color main #202020;
+@define-color alternate #191919;
+@define-color separator #414141;
+@define-color separatordraggable #636363;
+@define-color taskbar #101010;
+@define-color theme_selected_bg_color @accent; /* thunar uses this variable for icon coloring */
+@define-color theme_unfocused_selected_bg_color @accent; /* thunar uses this variable for icon coloring */
+window {
+	background-color: @main;
+}
+dialog,
+messagedialog {
+	background-color: @alternate;
+}
+.dialog-action-box {
+	background-color: @main;
+}
+spinner {
+	opacity: 0;
+}
+/* ------------ SEPARATORS ------------ */
+separator {
+	background-color: @separator;
+}
+paned separator {
+	border-style: none;
+	background-color: transparent;
+	background-image: image(@separatordraggable); /* hack, weird dotted lines without */
+	background-size: 1px 1px;
+	min-width: 2px;
+	min-height: 2px;
+}
+/* ------------ FRAMES ------------ */
+frame > border {
+	border: 1px solid @separator;
+}
+dialog notebook frame > border { 
+	border: none;
+} /* for settings menus */
+/* ------------ CONTEXT MENU ------------ */
+menubar {
+	background-color: @main;
+	min-height: 19px;
+}
+menu {
+	border: 1px solid #A0A0A0;
+	background-color: #2B2B2B;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 3px;
+	padding-right: 3px;
+	-GtkMenu-horizontal-offset: -9px;
+	-GtkMenu-vertical-offset: 2px;
+}
+menuitem {
+	color: #FFFFFF;
+	padding-left: 7px;
+	padding-right: 7px;
+}
+menuitem:backdrop {
+	color: #AAAAAA; 
+}
+menuitem:hover {
+	background-color: @accent;
+}
+menu menuitem box {
+	background-color: transparent;
+}
+menu menuitem {
+	min-height: 22px;
+}
+menu menuitem:hover {
+	background-color: #414141;
+}
+menu menuitem image {
+	min-width: 16px;
+	min-height: 16px;
+	margin-left: 1px;
+}
+menu menuitem label {
+	margin-left: 3px;
+}
+menu menuitem label:disabled {
+	color: #6D6D6D;
+}
+menu menuitem check {
+	min-width: 20px;
+	min-height: 20px;
+	margin-left: -6px;
+	margin-right: 8px;
+	-gtk-icon-source: url("../assets/blank-20.png"); /* certain programs fall back to empty checkbox without */
+}
+menu menuitem check:checked {
+	box-shadow: 0 0 0 1px #414141; /* hack, menuitem will be a pixel too tall without */
+	-gtk-icon-source: url("../assets/check-contextmenu.png");
+}
+menu menuitem radio {
+	min-width: 20px;
+	min-height: 20px;
+	margin-left: -6px;
+	margin-right: 8px;
+	-gtk-icon-source: url("../assets/blank-20.png"); /* certain programs fall back to empty radio without */
+}
+menu menuitem radio:checked {
+	box-shadow: 0 0 0 1px #414141; /* hack, menuitem will be a pixel too tall without */
+	-gtk-icon-source: url("../assets/radio-contextmenu.png");
+}
+menu menuitem arrow.right {
+	min-height: 16px;
+	min-width: 16px;
+	margin-right: -3px;
+	-gtk-icon-source: -gtk-icontheme("pan-end-symbolic");
+}
+menu separator {
+	min-height: 1px;
+	background-color: #808080;
+	margin: 3px 0;
+	margin-left: 8px;
+	margin-right: 8px;
+	border-style: none;
+}
+window.popup > decoration {
+	box-shadow: 4px 4px 2px -2px alpha(#000000, 0.52);
+}
+menubar > menuitem window.popup > menu {
+	padding-top: 3px;
+	padding-bottom: 3px;
+	-GtkMenu-horizontal-offset: -9px;
+	-GtkMenu-vertical-offset: 0px;
+}
+/* ------------ TOOLTIPS ------------ */
+tooltip {
+	background-color: transparent; /* change to @main for qubes vms */
+}
+tooltip * {
+	background-color: transparent;
+}
+tooltip image {
+	margin-top: 2px;
+}
+tooltip > box {
+	padding-bottom: 2px;
+	padding-right: 6px;
+	padding-left: 5px;
+	border: 1px solid #767676;
+	background-color: #2B2B2B;
+	box-shadow: 4px 4px 2px -2px alpha(#000000, 0.52);
+}
+/* ------------ SCROLL BARS ------------ */
+scrollbar {
+	-GtkScrollbar-has-backward-stepper: true;
+	-GtkScrollbar-has-forward-stepper: true;
+	background-color: #171717;
+	padding: 0;
+}
+scrollbar trough {
+	background-color: #171717;
+	min-width: 17px;
+	min-height: 17px;
+}
+scrollbar slider {
+	min-width: 15px;
+	min-height: 15px;
+	background-color: #4D4D4D;
+}
+scrollbar slider:hover {
+	background-color: #7A7A7A;
+}
+scrollbar slider:active {
+	background-color: #A6A6A6;
+}
+scrollbar button {
+	min-width: 17px;
+	min-height: 17px;
+	border: none;
+}
+scrollbar.vertical button.up {
+	-gtk-icon-source: url("../assets/scroll-up.png");
+} /* up arrow is 1px off compared to other scrollbar buttons in win */
+scrollbar.vertical button.up:hover {
+	-gtk-icon-source: url("../assets/scroll-up-hover.png");
+}
+scrollbar.vertical button.up:active {
+	-gtk-icon-source: url("../assets/scroll-up-press.png");
+}
+scrollbar.vertical button.down {
+	-gtk-icon-source: url("../assets/scroll.png");
+}
+scrollbar.vertical button.down:hover {
+	-gtk-icon-source: url("../assets/scroll-hover.png");
+}
+scrollbar.vertical button.down:active {
+	-gtk-icon-source: url("../assets/scroll-press.png");
+}
+scrollbar.horizontal button.up {
+	-gtk-icon-source: url("../assets/scroll.png");
+	-gtk-icon-transform: rotate(90deg);
+}
+scrollbar.horizontal button.up:hover {
+	-gtk-icon-source: url("../assets/scroll-hover.png");
+	-gtk-icon-transform: rotate(90deg);
+}
+scrollbar.horizontal button.up:active {
+	-gtk-icon-source: url("../assets/scroll-press.png");
+	-gtk-icon-transform: rotate(90deg);
+}
+scrollbar.horizontal button.down {
+	-gtk-icon-source: url("../assets/scroll.png");
+	-gtk-icon-transform: rotate(270deg);
+}
+scrollbar.horizontal button.down:hover {
+	-gtk-icon-source: url("../assets/scroll-hover.png");
+	-gtk-icon-transform: rotate(270deg);
+}
+scrollbar.horizontal button.down:active {
+	-gtk-icon-source: url("../assets/scroll-press.png");
+	-gtk-icon-transform: rotate(270deg);
+}
+/* ------------ BUTTONS ------------ */
+button {
+	background-color: #333333;
+	border: 1px solid #9B9B9B;
+	min-height: 22px;
+	min-width: 22px;
+}
+button.link {
+	color: @accent;
+	background-color: transparent;
+	border: none;
+}
+button.link label {
+	text-decoration: none;
+}
+button.link:hover label,
+button.link:active label,
+button.link:focus label {
+	text-decoration: underline;
+}
+button.link:hover,
+button.link:active,
+button.link:focus:hover,
+button.link:focus:active {
+	background-color: transparent;
+	text-decoration: underline;
+	color: mix(@accent, black, 0.2);
+}
+.image-button image {
+	min-width: 16px;
+	min-height: 16px;
+}
+.image-button:disabled image {
+	opacity: 0.5;
+}
+button box {
+	background-color: transparent;
+}
+button label {
+	margin-bottom: 1px;
+	padding-left: 7px;
+	padding-right: 7px;
+}
+button:hover,
+button:focus:hover {
+	background-color: #454545;
+	border-color: #9B9B9B;
+}
+button:active,
+button:focus:active {
+	background-color: #666666;
+	border-color: #9B9B9B;
+}
+button:focus {
+	border-color: #FFFFFF;
+}
+button:disabled {
+	border-color: #404040;
+	color: #838383;
+}
+button:checked {
+	background-color: #666666;
+	border-color: #9B9B9B;
+}
+button:checked:hover,
+button:checked:focus:hover {
+	background-color: #777777;
+	border-color: #9B9B9B;
+}
+button:checked:active,
+button:checked:focus:active {
+	background-color: #9B9B9B;
+	border-color: #9B9B9B;
+}
+button:checked:focus {
+	border-color: #FFFFFF;
+}
+notebook header button {
+	background-color: transparent;
+	border: none;
+}
+notebook header button:hover {
+	background-color: #454545;
+}
+notebook header button:active {
+	background-color: #666666;
+}
+button.flat.image-button.text-button {
+	border: none;
+	background-color: transparent;
+}
+button.flat.image-button.text-button:hover {
+	background-color: #454545;
+}
+button.flat.image-button.text-button:active {
+	background-color: #666666;
+}
+button widget box.horizontal image + label {
+	padding-left: 2px;
+	padding-right: 0px;
+}
+box.inline-toolbar button widget box.horizontal {
+	padding-left: 7px;
+	padding-right: 7px;
+}
+box.inline-toolbar.horizontal button:not(:first-child) {
+	margin-left: 4px;
+}
+stackswitcher.horizontal button:not(:first-child) {
+	margin-left: 4px;
+}
+combobox box.linked.horizontal button:not(:first-child) {
+	margin-left: 0px;
+}
+box.linked.horizontal button:not(:first-child) {
+	margin-left: 4px;
+}
+box.linked.vertical button:not(:first-child) {
+	margin-top: 4px;
+}
+/* ------------ SPIN BUTTONS ------------ */
+spinbutton > entry {
+	margin-right: 4px;
+}
+spinbutton button.up {
+	margin-left: 4px;
+}
+spinbutton:focus button:not(:disabled) {
+	border-color: #9B9B9B;
+}
+/* ------------ CELLS AND COLUMNS ------------ */
+treeview .cell:hover {
+	background-color: #4D4D4D;
+}
+treeview .cell:selected {
+	background-color: #777777;
+}
+treeview button {
+	border: none;
+}
+treeview button box {
+	background-color: @main;
+	min-height: 25px;
+	border-right: 1px solid @separatordraggable;
+	padding-left: 6px;
+	padding-right: 6px;
+}
+treeview button box label {
+	padding-left: 0px;
+	padding-right: 0px;
+	color: #DEDEDE;
+}
+treeview button:hover box {
+	background-color: #434343;
+}
+.expander {
+	-gtk-icon-source: url("../assets/tree-closed.png");
+}
+.expander:checked {
+	-gtk-icon-source: url("../assets/tree-open.png");
+}
+.expander:hover {
+	-gtk-icon-source: url("../assets/tree-closed-hover.png");
+}
+.expander:hover:checked {
+	-gtk-icon-source: url("../assets/tree-open-hover.png");
+}
+/* ------------ TAB MENUS ------------ */
+notebook stack {
+	border: 1px solid @separator;
+	background-color: @main;
+}
+notebook .top {
+	margin-bottom: -1px;
+	min-height: 21px;
+}
+notebook .bottom {
+	margin-top: -1px;
+	min-height: 21px;
+}
+notebook .left {
+	margin-right: -1px;
+}
+notebook .right {
+	margin-left: -1px;
+}
+notebook .top tab,
+notebook .bottom tab {
+	background-color: @alternate;
+	border: 1px solid @separator;
+	margin-left: -1px;
+}
+notebook .left tab,
+notebook .right tab {
+	background-color: @alternate;
+	border: 1px solid @separator;
+	margin-top: -1px;
+	min-height: 17px;
+}
+notebook .top tab {
+	margin-top: 2px;
+}
+notebook .bottom tab {
+	margin-bottom: 2px;
+}
+notebook .left tab {
+	margin-left: 2px;
+}
+notebook .right tab {
+	margin-right: 2px;
+}
+notebook .top tab label,
+notebook .bottom tab label {
+	margin-left: 5px;
+	margin-right: 5px;
+}
+notebook .left tab label,
+notebook .right tab label {
+	margin-left: 4px;
+	margin-right: 4px;
+}
+notebook .top tab:first-child,
+notebook .bottom tab:first-child {
+	margin-left: 2px;
+}
+notebook .left tab:first-child,
+notebook .right tab:first-child {
+	margin-top: 1px;
+}
+notebook .top tab:last-child,
+notebook .bottom tab:last-child {
+	margin-right: 2px;
+}
+notebook .left tab:last-child,
+notebook .right tab:last-child {
+	margin-bottom: 1px;
+}
+notebook .top tab:hover,
+notebook .bottom tab:hover,
+notebook .left tab:hover,
+notebook .right tab:hover {
+	background-color: #414141; 
+} /* used default hover color previously but this works better */
+notebook .top tab:checked,
+notebook .bottom tab:checked {
+	background-color: @main;
+	padding-left: 2px;
+	padding-right: 2px;
+	margin-left: -3px;
+	margin-right: -2px;
+}
+notebook .left tab:checked,
+notebook .right tab:checked {
+	background-color: @main;
+	padding-top: 1px;
+	padding-bottom: 1px;
+	margin-top: -2px;
+	margin-bottom: -1px;
+}
+notebook .top tab:checked {
+	margin-top: 0px;
+	border-bottom: none;
+}
+notebook .bottom tab:checked {
+	margin-bottom: 0px;
+	border-top: none;
+}
+notebook .left tab:checked {
+	margin-left: 0px;
+	border-right: none;
+}
+notebook .right tab:checked {
+	margin-right: 0px;
+	border-left: none;
+}
+notebook .top tab:checked label {
+	margin-bottom: 3px;
+}
+notebook .bottom tab:checked label {
+	margin-top: 3px;
+}
+notebook .left tab:checked label {
+	margin-right: 6px;
+}
+notebook .right tab:checked label {
+	margin-left: 6px;
+}
+notebook .top tab:first-child:checked,
+notebook .bottom tab:first-child:checked {
+	margin-left: 0px;
+}
+notebook .left tab:first-child:checked,
+notebook .right tab:first-child:checked {
+	margin-top: 0px;
+}
+notebook .top tab:last-child:checked,
+notebook .bottom tab:last-child:checked {
+	margin-right: 0px;
+}
+notebook .left tab:last-child:checked,
+notebook .right tab:last-child:checked {
+	margin-bottom: 0px;
+}
+/* ------------ PROGRESS BARS ------------ */
+progressbar,
+levelbar {
+	min-height: 13px;
+	min-width: 13px;
+}
+progressbar trough,
+levelbar trough {
+	background-color: @alternate;
+	border: 1px solid @separator;
+}
+progressbar.horizontal trough,
+levelbar.horizontal trough {
+	min-height: 13px;
+}
+progressbar.vertical trough,
+levelbar.vertical trough {
+	min-width: 13px;
+}
+progressbar.horizontal trough progress,
+levelbar.horizontal trough block.filled {
+	min-height: 13px;
+	background-color: #09E22D; /* original is 06B025, boosted V because it looks nicer on dark mode */
+}
+progressbar.vertical trough progress,
+levelbar.vertical trough block.filled {
+	min-width: 13px;
+	background-color: #09E22D;
+}
+levelbar:not(.continuous) trough block {
+	border-right: 1px solid @separator;
+}
+levelbar:not(.continuous) trough block:last-child {
+	border: none;
+}
+/* ------------ SLIDER BARS ------------ */
+scale.horizontal trough {
+	background: linear-gradient(to bottom, transparent, transparent 40%, #2D2D2D 40%, #2D2D2D 45%, @alternate 45%, @alternate 55%, #2D2D2D 55%, #2D2D2D 60%, transparent 60%);
+	border-width: 0 5px 0 5px;
+	border-image: url("../assets/track-h.png") 0 5 0 5 stretch;
+	border-style: solid;
+} /* background hack, gradient for trough, image caps the ends */
+scale.horizontal trough slider {
+	min-width: 10px;
+	min-height: 20px;
+}
+scale.vertical trough {
+	background: linear-gradient(to right, transparent, transparent 40%, #2D2D2D 40%, #2D2D2D 45%, @alternate 45%, @alternate 55%, #2D2D2D 55%, #2D2D2D 60%, transparent 60%);
+	border-width: 5px 0 5px 0;
+	border-image: url("../assets/track-v.png") 5 0 5 0 stretch;
+	border-style: solid;
+} /* background hack, gradient for trough, image caps the ends */
+scale.vertical trough slider {
+	min-width: 20px;
+	min-height: 10px;
+}
+scale trough slider {
+	background-color: @accent;
+}
+scale trough slider:hover {
+	background-color: #E8E8E8;
+}
+scale trough slider:active {
+	background-color: #CCCCCC;
+}
+scale.horizontal value {
+	padding-left: 5px;
+	background: @main; /* really stupid */
+	margin-top: 2px;
+	margin-bottom: -2px;
+}
+/* ------------ RADIOS AND CHECKBOXES ------------ */
+checkbutton check {
+	min-width: 13px;
+	min-height: 13px;
+	-gtk-icon-source: url("../assets/checkbox-empty.png");
+}
+checkbutton:checked check {
+	-gtk-icon-source: url("../assets/checkbox.png");
+}
+checkbutton:hover check {
+	-gtk-icon-source: url("../assets/checkbox-empty-hover.png");
+}
+checkbutton:hover:checked check {
+	-gtk-icon-source: url("../assets/checkbox-hover.png");
+}
+checkbutton:active check {
+	-gtk-icon-source: url("../assets/checkbox-empty-press.png");
+}
+checkbutton:active:checked check {
+	-gtk-icon-source: url("../assets/checkbox-press.png");
+}
+checkbutton:disabled check {
+	-gtk-icon-source: url("../assets/checkbox-disabled-empty.png");
+}
+checkbutton:disabled:checked check {
+	-gtk-icon-source: url("../assets/checkbox-disabled.png");
+}
+radiobutton radio {
+	min-width: 13px;
+	min-height: 13px;
+	-gtk-icon-source: url("../assets/radio-empty.png");
+}
+radiobutton:checked radio {
+	-gtk-icon-source: url("../assets/radio.png");
+}
+radiobutton:hover radio {
+	-gtk-icon-source: url("../assets/radio-empty-hover.png");
+}
+radiobutton:hover:checked radio {
+	-gtk-icon-source: url("../assets/radio-hover.png");
+}
+radiobutton:active radio {
+	-gtk-icon-source: url("../assets/radio-empty-press.png");
+}
+radiobutton:active:checked radio {
+	-gtk-icon-source: url("../assets/radio-press.png");
+}
+radiobutton:disabled radio {
+	-gtk-icon-source: url("../assets/radio-disabled-empty.png");
+}
+radiobutton:disabled:checked radio {
+	-gtk-icon-source: url("../assets/radio-disabled.png");
+}
+checkbutton label,
+radiobutton label {
+	margin-left: 3px;
+	min-height: 17px;
+}
+checkbutton:disabled label,
+radiobutton:disabled label {
+	color: #CCCCCC;
+}
+treeview.view check {
+	-gtk-icon-source: url("../assets/treebox-empty.png");
+}
+treeview.view check:checked {
+	-gtk-icon-source: url("../assets/treebox.png");
+}
+treeview.view check:disabled {
+	-gtk-icon-source: url("../assets/treebox-disabled-empty.png");
+}
+treeview.view check:disabled:checked {
+	-gtk-icon-source: url("../assets/treebox-disabled.png");
+}
+/* ------------ SWITCHES ------------ */
+switch {
+	color: transparent;
+	background-image: url("../assets/switch-empty.png");
+	background-position: right center;
+	background-repeat: no-repeat;
+	background-size: 14px 14px; /* pixel bigger than checkboxes to prevent subpx blurriness on even px parents */
+} /* learned later on that I can move things half a pixel, whatever. keeping in case people want to modify theme */
+switch:checked {
+	background-image: url("../assets/switch.png");
+}
+switch:hover {
+	background-image: url("../assets/switch-empty-hover.png");
+}
+switch:hover:checked {
+	background-image: url("../assets/switch-hover.png");
+}
+switch:disabled {
+	background-image: url("../assets/switch-disabled-empty.png");
+}
+switch:disabled:checked {
+	background-image: url("../assets/switch-disabled.png");
+}
+menu menuitem switch {
+	margin-right: -50px;
+	background-position: calc(100% - 51px) calc(50% - 1px); /* align with text */
+}
+/* ------------ STATUS BARS ------------ */
+statusbar {
+	background-color: #333333;
+}
+statusbar * {
+	background: transparent;
+}
+statusbar label {
+	color: #DEDEDE;
+}
+/* ------------ TEXT AND COMBO BOXES ------------ */
+entry {
+	background-color: @main;
+	border: 1px solid @separatordraggable;
+	min-height: 19px;
+	padding-left: 3px;
+	padding-right: 3px;
+	padding-bottom: 1px;
+}
+entry > image.right {
+	-gtk-icon-style: symbolic; /* clear text image */
+}
+entry:disabled {
+	border-color: @separator;
+	color: #A0A0A0;
+}
+entry selection {
+	background-color: @accent;
+}
+combobox button arrow {
+	min-width: 16px;
+	background-image: url("../assets/dropdown.png");
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+combobox button:hover arrow,
+combobox button:focus:hover arrow {
+	background-image: url("../assets/dropdown-hover.png");
+}
+combobox button:checked arrow,
+combobox button:focus:checked arrow {
+	background-image: url("../assets/dropdown-press.png");
+}
+combobox entry {
+	border-right: none;
+}
+combobox entry + button {
+	min-height: 4px;
+	min-width: 4px;
+	background-color: #333333;
+	border-color: @separatordraggable;
+	border-left: none;
+}
+combobox entry + button arrow {
+	box-shadow: inset 1px 0 0 0 #333333;
+}
+combobox entry + button:hover arrow,
+combobox entry + button:focus:hover arrow {
+	box-shadow: inset 1px 0 0 0 #9B9B9B;
+}
+combobox entry + button:checked arrow,
+combobox entry + button:focus:checked arrow {
+	box-shadow: inset 1px 0 0 0 #9B9B9B;
+}
+combobox entry + button:focus arrow {
+	box-shadow: inset 1px 0 0 0 #FFFFFF;
+}
+combobox window.popup menu {
+	background-color: @main;
+	border: 1px solid @accent;
+	padding: 1px;
+}
+combobox window.popup menu menuitem {
+	min-height: 4px;
+	margin-left: -8px;
+}
+combobox window.popup menu menuitem:hover {
+	background-color: @accent;
+}
+combobox button.combo {
+	min-height: 4px;
+}
+entry.search > image.left {
+	padding-right: 5px;
+}
+entry.search > image.right {
+	padding-left: 3px;
+}
+/* ------------ POPOVERS ------------ */
+popover > box,
+popover > stack > box {
+	border: 1px solid #A0A0A0;
+	background-color: #2B2B2B;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	padding-left: 2px;
+	padding-right: 2px;
+	box-shadow: 4px 4px 2px -2px alpha(#000000, 0.52);
+}
+popover modelbutton {
+	background-color: transparent;
+	min-height: 22px;
+	padding-left: 6px;
+}
+popover modelbutton:hover {
+	background-color: #414141;
+}
+popover modelbutton image {
+	min-width: 16px;
+	min-height: 16px;
+	margin-left: 1px;
+}
+popover modelbutton label {
+	margin-left: 3px;
+}
+popover modelbutton label:disabled {
+	color: #6D6D6D;
+}
+popover modelbutton check {
+	min-width: 20px;
+	min-height: 20px;
+	margin-left: 10px;
+	margin-right: 1px;
+	-gtk-icon-source: url("../assets/blank-20.png"); /* certain programs fall back to empty checkbox without */
+}
+popover modelbutton check:checked {
+	box-shadow: 0 0 0 1px #414141; /* hack, menuitem will be a pixel too tall without */
+	-gtk-icon-source: url("../assets/check-contextmenu.png");
+}
+popover modelbutton radio {
+	min-width: 20px;
+	min-height: 20px;
+	margin-left: 10px;
+	margin-right: 1px;
+	-gtk-icon-source: url("../assets/blank-20.png"); /* certain programs fall back to empty radio without */
+}
+popover modelbutton radio:checked {
+	box-shadow: 0 0 0 1px #414141; /* hack, menuitem will be a pixel too tall without */
+	-gtk-icon-source: url("../assets/radio-contextmenu.png");
+}
+popover modelbutton arrow.right {
+	min-height: 16px;
+	min-width: 16px;
+	margin-right: 4px;
+	-gtk-icon-source: -gtk-icontheme("pan-end-symbolic");
+}
+popover modelbutton arrow.left {
+	min-height: 16px;
+	min-width: 16px;
+	margin-left: 4px;
+	-gtk-icon-source: -gtk-icontheme("pan-start-symbolic");
+}
+popover separator {
+	min-height: 1px;
+	background-color: #808080;
+	border-style: none;
+	margin-bottom: 3px;
+	margin-top: 3px;
+	margin-left: 8px;
+	margin-right: 8px;
+}
+/* ------------ HEADER ------------ */
+headerbar {
+	background-color: #000000;
+	min-height: 30px;
+}
+headerbar:backdrop {
+	background-color: #2B2B2B;
+}
+headerbar button.close {
+	min-width: 45px;
+	min-height: 29px;
+	border: none;
+	background-color: transparent;
+}
+headerbar button.maximize,
+headerbar button.minimize {
+	min-width: 45px;
+	min-height: 29px;
+	border: none;
+	margin-right: -5px;
+	background-color: transparent;
+}
+headerbar button.minimize image {
+	margin-left: 1px;
+}
+headerbar:not(:backdrop) button.close:hover {
+	background-color: #E81123;
+}
+headerbar:not(:backdrop) button.close:active {
+	background-color: #8B0A14;
+}
+headerbar:not(:backdrop) button.maximize:hover,
+headerbar:not(:backdrop) button.minimize:hover {
+	background-color: #1A1A1A;
+}
+headerbar:not(:backdrop) button.maximize:active,
+headerbar:not(:backdrop) button.minimize:active {
+	background-color: #353534;
+}
+headerbar:backdrop button image,
+headerbar:backdrop button:disabled image,
+headerbar:backdrop label {
+	opacity: 0.4;
+}
+headerbar image.icon  {
+	margin-left: 5px;
+	margin-bottom: 1px;
+}
+headerbar button,
+headerbar button:checked,
+headerbar:backdrop button:hover,
+headerbar:backdrop button.text-button:hover,
+headerbar:backdrop button.toggle:hover,
+headerbar:backdrop button.toggle:checked:hover,
+headerbar:backdrop button:checked {
+	background-color: transparent;
+	border: none;
+}
+headerbar button:hover,
+headerbar button.text-button:hover,
+headerbar button.toggle:hover,
+headerbar button.toggle:checked:hover,
+headerbar button:checked:hover {
+	background-color: #1A1A1A;
+}
+headerbar button:active,
+headerbar button.text-button:active,
+headerbar button.toggle:active,
+headerbar button.toggle:checked:active,
+headerbar button:checked:active {
+	background-color: #353534;
+}
+headerbar separator {
+	opacity: 0;
+}
+/* ------------ FILE PICKER ------------ */
+filechooser placessidebar {
+	background-color: @alternate;
+}
+filechooser placessidebar + separator {
+	min-width: 3px;
+	background: linear-gradient(to right, #131313 0px, #131313 1px, @main 1px, @main 2px, #2B2B2B 2px);
+}
+filechooser placessidebar .sidebar-icon {
+	padding-right: 5px;
+}
+filechooser placessidebar list row {
+	min-height: 22px;
+	padding-left: 8px;
+}
+filechooser placessidebar list separator {
+	background-image: none;
+}
+filechooser placessidebar list row:hover {
+	background-color: #4D4D4D;
+}
+filechooser placessidebar list row:selected {
+	background-color: #626262;
+}
+filechooser > box.vertical > paned > separator + box.vertical {
+	background-color: @main;
+}
+filechooser button,
+filechooser .sidebar-icon {
+	-gtk-icon-style: regular;
+}
+filechooser > box > paned > box > box > stack > box > scrolledwindow > treeview .cell:selected {
+	background-color: @accent; /* match thunar */
+}
+filechooser #pathbarbox {
+	background-color: @alternate;
+}
+filechooser #pathbarbox stack box entry.search {
+	border: 1px solid @separatordraggable;
+	border-top: none;
+	border-bottom: none;
+}
+filechooser #pathbarbox stack entry {
+	border: none;
+}
+filechooser #pathbarbox > stack > box {
+	background-color: @alternate;
+	border: 1px solid #535353;
+	margin-top: 2px;
+	margin-right: 2px;
+	margin-bottom: 1px;
+}
+filechooser .path-bar button {
+	background-image: url("../assets/directory-arrow.png");
+	background-position: calc(100% - 3px) calc(50% + 0.5px);
+	background-repeat: no-repeat;
+	border: 1px solid transparent;
+	background-color: transparent;
+	min-width: 4px;
+	padding-left: 3px;
+	padding-right: 18px;
+	min-height: 10px;
+}
+filechooser .path-bar button label {
+	padding-left: 0;
+	padding-right: 0;
+}
+filechooser .path-bar button:not(.image-button) image {
+	padding-right: 3px;
+}
+filechooser .path-bar button:hover {
+	background-color: #434343;
+	border: 1px solid #212121;
+}
+filechooser .path-bar button:active {
+	background-color: #212121;
+	border: 1px solid #131313;
+	padding-left: 4px;
+	padding-right: 17px;
+	padding-top: 1px;
+}
+filechooser .path-bar button:nth-last-child(2) {
+	background-image: none;
+	padding-right: 3px;
+}
+filechooser .path-bar button:nth-last-child(2):active {
+	padding-right: 2px;
+	padding-left: 4px;
+	padding-top: 1px;
+}
+filechooser .path-bar .slider-button {
+	opacity: 1;
+	background-image: none;
+	padding: 0;
+}
+filechooser .path-bar .slider-button:disabled {
+	opacity: 0.5;
+}
+filechooser actionbar > revealer > box.horizontal {
+	padding-left: 8px;
+	padding-right: 8px;
+	padding-top: 6px;
+	padding-bottom: 6px;
+	background-color: #383838;
+}
+filechooser + box.dialog-action-box {
+	background-color: #383838;
+}
+/* ------------ XFCE TASKBAR ------------ */
+.xfce4-panel {
+	background-color: @taskbar;
+	border: none;
+}
+.xfce4-panel box {
+	background-color: transparent;
+}
+.xfce4-panel button {
+	margin: 0px;
+	background-color: transparent;
+	border: none;
+}
+.xfce4-panel button:hover {
+	background-color: #272727;
+}
+#whiskermenu-button {
+	border-right: 2px solid @taskbar;
+}
+#whiskermenu-button image {
+	min-width: 46px;
+}
+#whiskermenu-button:checked {
+	background-color: #1F1F1F;
+}
+#clock-button label:first-child {
+	margin-bottom: 2px;
+}
+.xfce4-panel .tasklist {
+	-XfceTasklist-min-button-length: 49; 
+	-XfceTasklist-max-button-length: 49;
+	-XfceTasklist-minimized-icon-lucency: 100;
+	-XfceTasklist-menu-max-width-chars: 1;
+} /* mega hack, will make taskbar icons accurate at the expense of hiding labels */
+.xfce4-panel .tasklist button {
+	box-shadow: inset 0 -2px 0 mix(@accent, white, 0.5); /* approximation */
+	border-left: 5px solid @taskbar;
+	border-right: 4px solid @taskbar;
+	color: @taskbar;
+}
+.xfce4-panel .tasklist button:hover {
+	box-shadow: inset 0 -2px 0 mix(@accent, white, 0.52); /* approximation */
+	border-left: 1px solid @taskbar;
+	border-right: none;
+}
+.xfce4-panel .tasklist button:active {
+	box-shadow: inset 0 -2px 0 mix(@accent, white, 0.51); /* approximation */
+	background-color: #1B1B1B;
+	border-left: 1px solid @taskbar;
+	border-right: none;
+}
+.xfce4-panel .tasklist button:checked {
+	background-color: #333333;
+	border-left: 1px solid @taskbar;
+	border-right: none;
+}
+.xfce4-panel .tasklist button:checked:hover {
+	box-shadow: inset 0 -2px 0 mix(@accent, white, 0.52); /* approximation */
+	background-color: #474747;
+	border-left: 1px solid @taskbar;
+	border-right: none;
+}
+.xfce4-panel .tasklist button:checked:active {
+	box-shadow: inset 0 -2px 0 mix(@accent, white, 0.51); /* approximation */
+	background-color: #3D3D3D;
+	border-left: 1px solid @taskbar;
+	border-right: none;
+}
+.xfce4-panel .tasklist button box label {
+	color: transparent;
+}
+.xfce4-panel .tasklist button box image {
+	background-color: transparent;
+	margin-left: 5px; /* change me to 9px for qubes */
+}
+.xfce4-panel .tasklist button:checked box image,
+.xfce4-panel .tasklist button:hover box image {
+	margin-left: 9px; /* change me to 13px for qubes */
+}
+box#docklike-plugin > button {
+	min-width: 40px;
+	box-shadow: inset 0 -2px 0 mix(@accent, white, 0.5);
+	border-right: 4px solid @taskbar;
+	border-left: 5px solid @taskbar;
+}
+box#docklike-plugin > button:not(.open_group) {
+	box-shadow: none;
+}
+box#docklike-plugin > button:not(.open_group):hover {
+	border-left: 1px solid @taskbar;
+	border-right: none;
+	min-width: 48px;
+}
+box#docklike-plugin > button:not(:first-child) {
+	margin-left: -4px;
+}
+box#docklike-plugin > button.open_group:hover {
+	box-shadow: inset 0 -2px 0 mix(@accent, white, 0.52);
+	border-right: none;
+	border-left: 1px solid @taskbar;
+	min-width: 48px;
+}
+box#docklike-plugin > button.active_group {
+	background-color: #333333;
+	border-left: 1px solid @taskbar;
+	border-right: none;
+	min-width: 48px;
+}
+box#docklike-plugin > button.active_group:hover {
+	background-color: #474747;
+	border-left: 1px solid @taskbar;
+	border-right: none;
+	min-width: 48px;
+}
+window.xfce-docklike-window > box {
+	background-color: #282828;
+	border: 1px solid #3B3B3B;
+	border-bottom: none;
+}
+window.xfce-docklike-window image.preview {
+	padding-bottom: 8px;
+}
+window.xfce-docklike-window image.icon {
+	margin-left: 8px;
+}
+window.xfce-docklike-window label.title {
+	margin-top: -1px;
+}
+window.xfce-docklike-window widget.active_menu_item {
+	background-color: #333333;
+}
+window.xfce-docklike-window widget.hover_menu_item {
+	background-color: #3D3D3D;
+}
+window.xfce-docklike-window widget.active_menu_item.hover_menu_item {
+	background-color: #474747;
+}
+window.xfce-docklike-window widget .image-button image {
+	opacity: 0;
+}
+window.xfce-docklike-window widget.hover_menu_item .image-button,
+window.xfce-docklike-window widget .image-button:hover {
+	background-image: url("../assets/close-docklike.png");
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: 16px 16px;
+}
+window.xfce-docklike-window widget .image-button:hover {
+	background-color: #C61A28;
+}
+window.xfce-docklike-window widget .image-button:active {
+	background-color: #E81123;
+}
+window.xfce-docklike-window widget .image-button {
+	min-width: 32px;
+	min-height: 32px;
+	border: none;
+	background: transparent;
+}
+#genmon-8 .genmon_imagebutton {
+	margin-right: -5px; /* change me to -11px for qubes */
+}
+#showdesktop-button,
+#genmon-8 .genmon_imagebutton {
+	background: linear-gradient(to right, transparent 8px, #707070 8px, #707070 9px, transparent 9px);
+}
+#showdesktop-button:hover,
+#genmon-8 .genmon_imagebutton:hover {
+	background: linear-gradient(to right, transparent 8px, #707070 8px, #707070 9px, #272727 9px);
+}
+#showdesktop-button:active,
+#genmon-8 .genmon_imagebutton:active {
+	background: linear-gradient(to right, transparent 8px, #707070 8px, #707070 9px, #1C1C1C 9px);
+}
+#showdesktop-button image,
+#genmon-8 .genmon_imagebutton image {
+	opacity: 0;
+}
+#pulseaudio-button window button,
+#pulseaudio-button window button:hover,
+#pulseaudio-button window button:checked,
+#pulseaudio-button window button:active {
+	background-color: transparent;
+}
+/* ------------ START MENU ------------ */
+#whiskermenu-window {
+	background-color: #1F1F1F;
+}
+#whiskermenu-window .command-button {
+	border: none;
+	background-color: transparent;
+	min-width: 36px;
+	min-height: 36px;
+	-gtk-icon-style: symbolic;
+}
+#whiskermenu-window .category-button {
+	border: none;
+	background-color: transparent;
+	min-width: 30px; /* fix offset from persistent scrollbar */
+	min-height: 36px;
+	-gtk-icon-style: symbolic;
+}
+#whiskermenu-window .category-button:hover{
+	background-color: #353535;
+}
+#whiskermenu-window .command-button:hover {
+	background-color: #353535;
+}
+#whiskermenu-window .category-button:active{
+	background-color: #353535;
+}
+#whiskermenu-window .command-button:active {
+	background-color: #4C4C4C;
+}
+#whiskermenu-window .profile-picture {
+	min-width: 36px;
+	min-height: 36px;
+	background-color: transparent;
+}
+#whiskermenu-window > frame > stack > grid > box > stack.contents > grid > scrolledwindow > scrollbar,
+#whiskermenu-window > frame > stack > grid > box > stack.contents > grid > scrolledwindow > scrollbar * {
+	min-width: 0px;
+	min-height: 0px;
+	padding: 0px;
+	margin: 0px;
+	background: none;
+}
+#whiskermenu-window .search-area {
+	margin-left: -6px;
+	margin-right: -6px;
+	margin-bottom: -6px;
+	margin-top: -6px;
+}
+#whiskermenu-window .search-area entry {
+	background-color: #FFFFFF;
+	border: 2px solid @accent;
+	min-height: 35px; /* mysterious 1px coming out of somewhere, don't care enough to investigate, band-aid fix */
+	color: #000000;
+	caret-color: #000000;
+	font-size: 15px;
+	padding-left: 22px;
+	background-image: url("../assets/search-inverted.png"); /* hack, entry icon is hardcoded */
+	background-position: left center;
+	background-repeat: no-repeat;
+	background-size: 26px 16px;
+}
+#whiskermenu-window .search-area entry image {
+	-gtk-icon-transform: scale(0);
+}
+#whiskermenu-window treeview.view .cell:selected,
+#whiskermenu-window treeview.view .cell:hover{
+    	background-color: #353535;
+}
+#whiskermenu-window iconview.view .cell:hover {
+	background-color: #353535;
+}
+#whiskermenu-window .commands-area {
+	padding-left: 6px;
+}
+#whiskermenu-window frame > border {
+	border: none;
+}
+#whiskermenu-window > frame > stack > grid > box > stack {
+	margin-right: -6px;
+}
+#whiskermenu-window entry.search > image.left {
+	padding-right: 0px;
+	background-color: transparent;
+}
+#whiskermenu-window entry.search > image.right {
+	padding-left: 0px;
+	background-color: transparent;
+}
+/* ------------ VOLUME BUTTON ------------
+#pulseaudio-button > box > image {
+	background-color: red;
+}
+*/
+/* ------------ COMMAND PROMPT ------------ */
+#xfce4-terminal-notebook stack {
+	border: none;
+	background-color: transparent;
+}
+#xfce4-terminal-notebook box {
+	background-color: transparent;
+}
+#xfce4-terminal-notebook tab:checked {
+	background-color: #0C0C0C;
+	color: #CCCCCC;
+}
+#xfce4-terminal-notebook header {
+	background-color: @main;
+}
+window.background > decoration + box.vertical.background {
+	background-color: #0C0C0C;
+} /* hopefully specific enough to only affect the terminal */
+/* ------------ FILE EXPLORER ------------ */
+window.thunar scrolledwindow.shortcuts-pane treeview {
+	background-color: @alternate;
+}
+window.thunar scrolledwindow.shortcuts-pane treeview .cell:hover {
+	background-color: #4D4D4D;
+}
+window.thunar scrolledwindow.shortcuts-pane treeview .cell:selected {
+	background-color: #626262;
+	border: 1px solid #383838;
+}
+window.thunar > grid > paned > separator {
+	min-width: 3px;
+	background: linear-gradient(to right, #131313 0px, #131313 1px, @main 1px, @main 2px, #2B2B2B 2px);
+}
+window.thunar > grid > paned > paned > grid > widget {
+	background-color: #333333;
+}
+window.thunar > grid > paned > paned > grid > widget statusbar,
+window.thunar > grid > paned > paned > grid > widget statusbar * {
+	border: none;
+}
+window.thunar paned stack {
+	border: none;
+}
+window.thunar > grid > toolbar {
+	background-color: @alternate;
+}
+window.thunar menubar {
+	background-color: #000000;
+	min-height: 23px;
+}
+window.thunar menubar > menuitem {
+	padding-left: 14px;
+	padding-right: 14px;
+}
+window.thunar menubar > menuitem:backdrop {
+	color: #FFFFFF;
+}
+window.thunar menubar > menuitem:first-child {
+	background-color: alpha(@accent, 0.8);
+	padding-left: 19px;
+	padding-right: 19px;
+}
+window.thunar menubar > menuitem:first-child:hover {
+		background-color: #353535;
+}
+window.thunar grid > toolbar {
+	min-height: 35px;
+	padding-left: 4px;
+	padding-right: 10px;
+}
+window.thunar grid > toolbar entry image {
+	padding-right: 5px;
+}
+window.thunar grid > toolbar > toolbutton > button.image-button {
+	border: none;
+	background: none;
+	padding-left: 4px;
+	padding-right: 4px;
+}
+window.thunar grid > toolbar > toolbutton > button.image-button:hover {
+	background-color: #454545;
+}
+window.thunar grid > toolbar > toolbutton > button.image-button:active {
+	background-color: #666666;
+}
+window.thunar grid > toolbar button.toggle:last-child,
+window.thunar grid > toolbar button.toggle:last-child:hover,
+window.thunar grid > toolbar button.toggle:last-child:active {
+	background-image: url("../assets/explorer-search.png");
+	background-repeat: no-repeat;
+	background-position: 7px 12px;
+	background-color: transparent;
+	margin-right: 3px;
+	padding: 0;
+}
+window.thunar grid > toolbar button.toggle:last-child image {
+	opacity: 0;
+}
+window.thunar grid > toolbar entry {
+	padding-left: 2px;
+	padding-right: 28px;
+	margin-left: -7px;
+	margin-right: -33px;
+	margin-top: 6px;
+	margin-bottom: 7px;
+	background-color: @alternate;
+	border-color: #535353;
+}
+window.thunar .view:selected {
+	border-radius: 0;
+}
+window.thunar .path-bar button.toggle {
+	background-image: url("../assets/directory-arrow.png");
+	background-position: calc(100% - 3px) calc(50% + 0.5px);
+	background-repeat: no-repeat;
+	background-color: transparent;
+	border: 1px solid transparent;
+	min-width: 4px;
+	min-height: 18px;
+	margin-top: 1px;
+	margin-bottom: 1px;
+	padding-left: 3px;
+	padding-right: 18px;
+	-gtk-icon-style: regular;
+}
+window.thunar .path-bar button.toggle label {
+	padding-left: 0;
+	padding-right: 0;
+}
+window.thunar .path-bar button.toggle image {
+	padding-right: 3px;
+}
+window.thunar .path-bar button.toggle:hover {
+	background-color: #434343;
+	border: 1px solid #212121;
+}
+window.thunar .path-bar button.toggle:active {
+	background-color: #212121;
+	border: 1px solid #131313;
+	padding-left: 4px;
+	padding-right: 17px;
+}
+window.thunar .path-bar button.toggle:active label {
+	margin-bottom: -1px;
+}
+window.thunar .path-bar button:nth-last-child(3) {
+	background-image: none;
+	padding-right: 3px;
+}
+window.thunar .path-bar button:nth-last-child(3):active {
+	padding-right: 2px;
+	padding-left: 4px;
+}
+window.thunar .path-bar button:nth-last-child(2) {
+	background-image: none;
+	background-color: transparent;
+	border: none;
+	opacity: 0;
+}
+window.thunar .path-bar button:first-child,
+window.thunar .path-bar button:last-child {
+	background-color: transparent;
+	border: none;
+}
+window.thunar .path-bar button:first-child:hover,
+window.thunar .path-bar button:last-child:hover {
+	background-color: #454545;
+}
+window.thunar .path-bar button:first-child:disabled,
+window.thunar .path-bar button:last-child:disabled {
+	opacity: 0.5;
+}
+window.thunar .path-bar {
+	background-color: @alternate;
+	border: 1px solid #535353;
+}
+window.thunar grid > .warning {
+	background-color: @alternate;
+}
+/* ------------ SETTINGS MANAGER ------------ */
+dialog.background > decoration + box.vertical {
+	margin: -2px;
+}
+/* ------------ NOTEPAD ------------ */
+textview text {
+	background-color: @main;
+	color: #FFFFFF;
+}
+textview {
+	color: @main;
+	background-color: @main;
+}
+textview text selection {
+	background-color: @accent;
+}
+.mousepad > box > notebook > stack {
+	border-left: none;
+	border-right: none;
+	border-bottom: none;
+}
+.mousepad .context-menu {
+	font: initial;
+}
+.mousepad > box > toolbar toolitem entry {
+	margin-left: 6px;
+	border-right: 1px solid #636363;
+}
+.mousepad > box > toolbar toolitem:first-child button {
+	margin-left: 4px;
+}
+.mousepad > box > toolbar checkbutton label {
+	padding-right: 12px;
+}
+/* ------------ TASK MANAGER ------------ */
+window.background > decoration + box.vertical > paned.vertical > box.vertical > box.horizontal > frame:first-child > border.flat {
+	border: 1px solid #0091FE;
+	box-shadow: inset 1px 0 0 0 #0091FE;
+}
+window.background > decoration + box.vertical > paned.vertical > box.vertical > box.horizontal > frame:last-child > border.flat {
+	border: 1px solid #34C793;
+	box-shadow: inset 1px 0 0 0 #34C793;
+}
+/* ------------ DESKTOP ------------ */
+rubberband, .rubberband, XfdesktopIconView.view .rubberband {
+	border: 1px solid @accent;
+	background-color: alpha(@accent, 0.25);
+}
+XfdesktopIconView.view .label {
+	text-shadow: 0px 2px 2px #000000;
+	background-color: transparent;
+} 
+XfdesktopIconView.view .label:hover {
+	background-color: alpha(@accent, 0.2);
+	border: 1px solid alpha(mix(@accent, white, 0.5), 0.2);
+}
+XfdesktopIconView.view .label:selected {
+	background-color: alpha(@accent, 0.4);
+	border: 1px solid alpha(mix(@accent, white, 0.5), 0.38);
+}
+window.csd:not(.popup) > decoration,
+messagedialog.csd > decoration {
+	box-shadow: 2px 2px 9px 0px alpha(#000000, 0.4);
+	margin: 0px;
+	border: 1px solid #262626;
+}
+window.csd:not(.popup) > decoration:backdrop ,
+messagedialog.csd > decoration:backdrop {
+	border: 1px solid #3B3B3B;
+}
+/* ------------ LOCK SCREEN ------------ */
+#login_window {
+	background-color: #101010;
+}
+#login_window border {
+	border: none;
+}

@@ -1,0 +1,22 @@
+/* XPM */
+static char * menu_pressed_xpm[] = {
+"32 16 2 1",
+"   c None",
+"A  c #C0C0C0",
+"        AAAAAAAAAAAAAAAA        ",
+"        AAAAAAAAAAAAAAAA        ",
+"        AAAAAAAAAAAAAAAA        ",
+"        AAAAAAAAAAAAAAAA        ",
+"        AAAAAAAAAAAAAAAA        ",
+"        AAAAAAAAAAAAAAAA        ",
+"        AAAAAAAAAAAAAAAA        ",
+"        AAAAAAAAAAAAAAAA        ",
+"        AAAAAAAAAAAAAAAA        ",
+"        AAAAAAAAAAAAAAAA        ",
+"        AAAAAAAAAAAAAAAA        ",
+"        AAAAAAAAAAAAAAAA        ",
+"        AAAAAAAAAAAAAAAA        ",
+"        AAAAAAAAAAAAAAAA        ",
+"        AAAAAAAAAAAAAAAA        ",
+"        AAAAAAAAAAAAAAAA        "
+};

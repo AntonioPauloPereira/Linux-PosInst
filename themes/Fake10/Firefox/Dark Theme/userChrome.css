@@ -1,0 +1,29 @@
+tooltip {
+	background-color: #2B2A33;
+	border: 1px solid #F9F9F9;
+	border-radius: 4px;
+	color: #FFFFFF;
+}
+.titlebar-button {
+	padding-left: 11px !important;
+	padding-right: 11px !important;
+	background-color: transparent !important;
+	border-radius: 0px !important;
+}
+.titlebar-button * {
+	color: transparent; /* hide stupid circle thing */
+}
+.titlebar-close:hover {
+	background-color: #E81123 !important;
+}
+.titlebar-close:active {
+	background-color: #F16F7A !important;
+}
+.titlebar-min:hover,
+.titlebar-max:hover {
+	background-color: #414047 !important;
+}
+.titlebar-min:active,
+.titlebar-max:active {
+	background-color: #605F65 !important;
+}
