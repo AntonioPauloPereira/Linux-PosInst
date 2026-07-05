@@ -1,59 +1,35 @@
 #!/bin/bash 
 
-#Instalação de programas
-echo "---> Iniciando processos de pós-instalação... <---"
-
-sudo apt update -y
-sudo apt upgrade -y
-
-sudo apt install curl -y
-curl -fsS https://dl.brave.com/install.sh | sh
-
-sudo apt install thunar tumbler thunar-archive-plugin thunar-media-tags-plugin gvfs -y
-sudo apt install obs-studio -y
-sudo apt install gimp -y
-sudo apt install ranger -y
-sudo apt install kate -y
-sudo apt install nano -y
-sudo apt install syncthing -y
-sudo apt install kdenlive -y
-sudo apt install htop -y
-sudo apt install vlc -y
-sudo apt install gparted -y
-sudo apt install gwenview -y
-sudo apt install fastfetch -y
-sudo apt install xfce4-terminal -y
-sudo apt install flatpak -y
-sudo apt install mate-power-manager -y
-sudo apt install xfce4-clipman -y
-sudo apt install libreoffice -y
-sudo apt install xfce4-screenshooter -y
-sudo apt install xfce4-notes -y
-sudo apt install firefox-esr -y
-sudo apt install audacity -y
-sudo apt install gnome-calculator -y
-sudo apt install imagemagick -y
-sudo apt innstall kolourpaint -y
-sudo apt install qbittorrent -y
-sudo apt install mousepad -y
-sudo apt install conky-all -y
-sudo apt install thunderbird -y
-
-flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-
-flatpak install -y com.protonvpn.www   
-flatpak install -y md.obsidian.Obsidian      
-flathub install -y org.onlyoffice.desktopeditors
-flatpak install -y flathub com.usebottles.bottles
-flatpak install -y com.rtosta.zapzap
-flatpak install -y com.markopejic.downloader
-flatpak install -y com.github.phase1geo.minder
-flatpak install -y com.vscodium.codium
-flatpak install -y com.dec05eba.gpu_screen_recorder
-flatpak install -y no.mifi.losslesscut
-flatpak install -y com.rafaelmardojai.Blanket
-
-echo -e "\n"
+	echo "---> Iniciando processos de pós-instalação... <---"
+	
+	pacs="obs-studio   gimp   ranger   syncthing   kdenlive   htop   vlc   gparted   fastfetch   flatpak   xfce4-clipman   xfce4-screenshooter   xfce4-notes   firefox-esr   audacity    imagemagick   kolourpaint   qbittorrent   mousepad   thunderbird   chromium  "
+	flat="
+    com.protonvpn.www    
+    md.obsidian.Obsidian       
+	com.wps.Office 
+    com.usebottles.bottles 
+    com.rtosta.zapzap 
+    com.markopejic.downloader 
+    com.github.phase1geo.minder 
+    com.vscodium.codium 
+    com.dec05eba.gpu_screen_recorder 
+    no.mifi.losslesscut 
+    com.rafaelmardojai.Blanket 
+    net.waterfox.waterfox 
+    com.github.tchx84.Flatseal  
+    net.sourceforge.osmo  
+    com.dec05eba.gpu_screen_recorder      
+    com.brave.Browser
+	"
+	sudo apt update -y &&  sudo apt upgrade -y
+	flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+	sudo apt install -y $pacs &
+	flatpak install --user -y flathub $flat &
+	wait
+	
+	sudo apt autoremove -y
+	
+	echo -e "\n"
 cat << "EOF"
  #####    #  #    ###    ######     ######    #     #   #          #   #      #   #      #    #       #
 #     #   #  #    ###   #      #   #      #   #     #   #              ##     #   #      #     #     #
@@ -65,8 +41,3 @@ cat << "EOF"
 #######    #      ###   #          #      #    #####    ########   #   #      #    ######    #        #
 EOF
 echo -e "\n"
-
-
-
-
-
