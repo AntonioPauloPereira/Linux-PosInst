@@ -18,13 +18,19 @@
     net.waterfox.waterfox 
     com.github.tchx84.Flatseal  
     net.sourceforge.osmo  
-    com.dec05eba.gpu_screen_recorder      
     com.brave.Browser
 	"
+
+	#Atualizar repositórios
 	sudo apt update -y &&  sudo apt upgrade -y
+	
+	#Adicionar repositório flatpak
 	flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+
+	#Instalação paralelar de apt e flatpak
 	sudo apt install -y $pacs &
 	flatpak install --user -y flathub $flat &
+	
 	wait
 	
 	sudo apt autoremove -y
